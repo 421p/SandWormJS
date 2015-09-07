@@ -1,5 +1,4 @@
-var
-//const
+var 
 GAME_SPEED = 450,
 COLS = 16,
 ROWS = 16,
@@ -10,10 +9,8 @@ LEFT  = 0,
 UP    = 1,
 RIGHT = 2,
 DOWN  = 3,
-WORM_COLOR = 'orange',
-VICTIM_COLOR = 'pink',
-KEY_LEFT  = 87, //87 Rabotaet NE STABILNO ! ! ! NE TE KNOPKI
-KEY_UP    = 65, //65  WASD WAS DWAS DWDASDADWSDAWDASDAWDASDDAWDSDAW
+KEY_LEFT  = 87, //87 
+KEY_UP    = 65, //65 
 KEY_RIGHT = 83,//83
 KEY_DOWN  = 68, //68
 
