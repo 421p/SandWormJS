@@ -1,5 +1,7 @@
-var 
+var
+//const
 GAME_SPEED = 450,
+fps = 5,
 COLS = 16,
 ROWS = 16,
 EMPTY = 0,
@@ -9,12 +11,12 @@ LEFT  = 0,
 UP    = 1,
 RIGHT = 2,
 DOWN  = 3,
-KEY_LEFT  = 87, //87 
-KEY_UP    = 65, //65 
+KEY_LEFT  = 87, //87
+KEY_UP    = 65, //65
 KEY_RIGHT = 83,//83
 KEY_DOWN  = 68, //68
 
-keystate, timerId, score;
+keystate, timerId, score, frames;
 
 desertField = {
 	width: null,
@@ -94,6 +96,7 @@ function main() {
 function init() {
 	score = 0;
 	GAME_SPEED = 450;
+	fps = 10;
 	desertField.init(EMPTY, COLS, ROWS);
 	var sp = {x:Math.floor(COLS/2), y:ROWS-1};
 	SandWorm.init(LEFT, sp.x, sp.y);
@@ -102,11 +105,18 @@ function init() {
 }
 
 function loop() {
-	(function repeat(){
-		update();
-		draw();
-		timerId = setTimeout(repeat, GAME_SPEED);
+	(function step() {
+		setTimeout(function() {
+			requestAnimationFrame(step);  //THE NEW WAY
+			update();
+			draw();
+		}, 1000 / fps);
 	})();
+
+	/*(function repeat(){  OLD WAY
+		/* some code*/
+		/*timerId = setTimeout(repeat, GAME_SPEED);
+	})();*/
 }
 
 function update() {
@@ -162,6 +172,7 @@ function update() {
 			// increment the score and sets a new victim position
 			score ++;
 			GAME_SPEED -= 10;
+			fps+=0.5;
 			setVictim();
 		} else {
 			var tail = SandWorm.remove();
