@@ -1,0 +1,29 @@
+div {
+  box-sizing: border-box;
+}
+.row {
+  height: 40px;
+}
+.cell {
+  display: inline-block;
+  border: solid rgba(128, 53, 0, 0.32) 1px;
+  width: 40px;
+  height: 40px;
+}
+#scorebar {
+  margin-right: 10%;
+}
+#dc {
+  margin-left: 30%;
+  text-align: center;
+}
+.field {
+  text-align: center;
+  margin-top: 5%;
+}
+#WORM {
+  background-color: #ffbb68;
+}
+#VICTIM {
+  background-color: #bcb546;
+}
